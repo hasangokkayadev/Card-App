@@ -45,7 +45,7 @@ import { Button, Container, Grid, Stack, Input, Textarea } from '@mantine/core';
 
     //Eğer copyList=list deseydik kopyalama yapamazdık, referans gösterirdi ve biz yeni nesneler push edemezdik.
     /*const copyList = [...List, değer] yaparsam kart sona eklenirdi yine
-      consr copyList = [değer,..List] yaparsam kart başa eklenirdi*/
+      const copyList = [değer,..List] yaparsam kart başa eklenirdi*/
     /*copyList.push(copyList değeri olan list, yani arr dizisine içeriği aşağıdaki veriler olan element ekliyoruz
       id: 5,
       title,
