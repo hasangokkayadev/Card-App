@@ -1,4 +1,4 @@
-import { click } from "@testing-library/user-event/dist/click";
+//import { click } from "@testing-library/user-event/dist/click";
 import "./Card.css";
 import { Card, Image, Text, /*Badge,*/ Button, CloseButton, Group } from '@mantine/core';
 
