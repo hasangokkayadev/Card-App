@@ -6,7 +6,7 @@ import { Button, Container, Grid, Stack, Input, Textarea } from '@mantine/core';
 //let arr = [   nesneleri arr dizisi içinde tutuyoruz.
 //let arr dizisini iptal edip kart bilgilerini useState'e aşağıdaki gibi atıyoruz
   const App = () => {
-    const [title, setTitle] = useState("Başlık");
+    const [title, setTitle] = useState("");
     const [paragraf, setParagraph] = useState("");
     const [list, setList] = useState([  
   {
@@ -41,8 +41,9 @@ import { Button, Container, Grid, Stack, Input, Textarea } from '@mantine/core';
         id: 5,
         title,
         par: paragraf
-      }
+      },
 
+      
     //Eğer copyList=list deseydik kopyalama yapamazdık, referans gösterirdi ve biz yeni nesneler push edemezdik.
     /*const copyList = [...List, değer] yaparsam kart sona eklenirdi yine
       const copyList = [değer,..List] yaparsam kart başa eklenirdi*/
@@ -77,7 +78,16 @@ import { Button, Container, Grid, Stack, Input, Textarea } from '@mantine/core';
       <Grid>{/*Mantine grid yapsını uygulamamızı sağlar*/}
         {list.map(({par, title}, i) => (
           <Grid.Col span={4} key={`index ${i}`}>
-            <Card par={par} title={title}/*lesson={lesson}*/index={i}/>
+            <Card 
+                par={par} 
+                title={title}/*lesson={lesson}*/
+                i={i} 
+                click={() => {//click fonksiyonunu kartı silmek için kullanıyoruz
+                  let copyList = [...list];//listenin kopyasını oluşturduk.
+                  copyList.splice(i, 1);//ilk elemanının ilk nesnesini sil.
+                  setList(copyList);//copyListle arrayimizi yeniden oluşturduk ve setList ile yeniden set ettik ve arrayimizi yeniden render ettik.
+                }}
+                />
           </Grid.Col>          
         ))}
       </Grid>
